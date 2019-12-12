@@ -10,9 +10,53 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2019_12_12_194818) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "customer_favorite_shops", force: :cascade do |t|
+    t.integer "shop_id"
+    t.integer "customer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "meal_prices", force: :cascade do |t|
+    t.integer "previous_price"
+    t.integer "promotion"
+    t.integer "meal_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "meal_ratings", force: :cascade do |t|
+    t.date "date"
+    t.integer "rating"
+    t.integer "meal_id"
+    t.integer "customer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "meals", force: :cascade do |t|
+    t.string "category"
+    t.integer "newprice"
+    t.integer "quantity"
+    t.string "description"
+    t.time "time"
+    t.integer "shop_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer "quantity"
+    t.integer "customer_id"
+    t.integer "price"
+    t.integer "meal_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end

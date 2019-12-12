@@ -1,0 +1,2 @@
+class MealRating < ApplicationRecord
+end
