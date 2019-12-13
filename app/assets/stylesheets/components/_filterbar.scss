@@ -1,0 +1,18 @@
+.filterbar a {
+  text-decoration: none;
+  color: black;
+  opacity: 0.15;
+}
+
+.filterbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  //justify-content: center;
+  border-top : 0.2px solid;
+  border-bottom: 0.2px solid;
+}
+
+.filterbarlinks {
+  //flex-grow: 1;
+}
