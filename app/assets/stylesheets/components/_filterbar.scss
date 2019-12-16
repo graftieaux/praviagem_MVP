@@ -7,12 +7,22 @@
 .filterbar {
   display: flex;
   align-items: center;
+  background: white;
   justify-content: space-evenly;
   //justify-content: center;
-  border-top : 0.2px solid;
-  border-bottom: 0.2px solid;
+  //border-top : 0.1em solid;
+  //border-bottom: 0.1em solid;
+  color: #feb21e;
+  padding-bottom: 4px;
+  padding-top: 4px;
+  margin-bottom: 3px;
+  margin-top: 3px;
 }
 
 .filterbarlinks {
   //flex-grow: 1;
+}
+
+.fas fa-search {
+
 }

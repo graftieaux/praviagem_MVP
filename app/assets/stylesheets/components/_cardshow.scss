@@ -1,0 +1,89 @@
+.card-show {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.card-show > img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-show h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-show p {
+  font-size: 12px;
+  //opacity: .7;
+  margin: 0;
+}
+
+.card-show .card-show-infos {
+  padding: 16px;
+  padding-bottom: 6px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.card-show-infos .card-show-user {
+  position: absolute;
+  right: 324px;
+  top: -28px;
+  width: 40px;
+}
+
+.card-show-infos i {
+  color: black;
+  opacity: 0.45;
+  font-size: 12px;
+}
+
+.card-show-pricing {
+  font-weight: bold;
+  font-size: 16px;
+  color: balck;
+  align-items: flex-end;
+}
+
+.card-show-address {
+  padding-left: 16px;
+  padding-top: 4px;
+  padding-bottom: 6px;
+  font-weight: bold;
+  border-top: 0.1px solid;
+  border-top-color: gray;
+  border-bottom: 0.1px solid;
+  border-bottom-color: gray;
+}
+
+.card-show-address-infos {
+  font-weight: normal;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.card-show-address-infos a {
+  color: red;
+  opacity: 0.5;
+  text-decoration: none;
+}
+
+.card-show-shop {
+  padding-left: 16px;
+  padding-top: 4px;
+  font-weight: bold;
+  padding-bottom: 6px;
+  border-bottom: 0.1px solid;
+  border-bottom-color: gray;
+}
+
+.card-show-shop-infos{
+  display: flex;
+  padding-top: 3px;
+  font-weight: normal;
+}

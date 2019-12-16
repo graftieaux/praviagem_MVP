@@ -5,8 +5,8 @@
 }
 
 .card-feed > img {
-  height: 200px;
-  width: 100%;
+  height: 150px;
+  width: 50%;
   object-fit: cover;
 }
 
@@ -22,18 +22,33 @@
   margin: 0;
 }
 
-
 .card-feed .card-feed-infos {
   padding: 16px;
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
   position: relative;
 }
 
 .card-feed-infos .card-feed-user {
   position: absolute;
-  right: 16px;
-  top: -20px;
+  right: 302px;
+  top: -28px;
   width: 40px;
+}
+
+.card-feed-infos i {
+  color: black;
+  opacity: 0.45;
+  font-size: 12px;
+}
+
+.card-feed-pricing {
+  font-weight: bold;
+  font-size: 16px;
+  color: balck;
+  align-items: flex-end;
+}
+
+.promotion {
+  color: orange;
 }
