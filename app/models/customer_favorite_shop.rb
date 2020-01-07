@@ -1,4 +1,4 @@
 class CustomerFavoriteShop < ApplicationRecord
-  #belongs to:shop
-  #belongs to: customer
+  #belongs_to:shop
+  #belongs_to: customer
 end

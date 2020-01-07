@@ -1,7 +1,7 @@
 <%= simple_form_for [@meal, @order] do |f| %>
     <div class="form-group">
+      <%= f.input :meal, collection: @meal.description %>
       <%= f.input :quantity, collection: @order.available_quantities, include_blank: false%>
-      <%= f.input :time, collection: [['19h-20h', '19:00'], ['20h-21h', '20:00'], ['21h-22h', '21:00']], include_blank: false%>
     </div>
     <div class="centered">
       <%= f.submit class: "btn btn-success mt-1 mb-1", data: {toggle: "modal", target: "#myModal"} %>

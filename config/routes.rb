@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     #resources :customer_favorite_shop, only: [:create, :update]
   end
 
-  resources :orders, only: [:show]
+  resources :orders, only: [:show, :index]
   #resources :shops, only: [:index, :create, :new, :update]
   #resources :users, only: [:index, :edit, :update]
 

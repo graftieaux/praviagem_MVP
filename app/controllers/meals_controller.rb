@@ -3,6 +3,13 @@ class MealsController < ApplicationController
 
   def index
     @meals = Meal.all
+    @meals = Meal.geocoded
+    @markers = @meals.map do |meal|
+      {
+        lat: meal.latitude,
+        lng: meal.longitude
+      }
+    end
   end
 
   def show
