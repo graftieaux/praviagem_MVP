@@ -8,7 +8,13 @@ Rails.application.routes.draw do
     #resources :customer_favorite_shop, only: [:create, :update]
   end
 
-  resources :orders, only: [:show, :index]
+  namespace :customer do
+    resources :orders, only: [:show, :index]
+  end
+
+  namespace :shop do
+    resources :orders, only: [:show, :index]
+  end
   #resources :shops, only: [:index, :create, :new, :update]
   #resources :users, only: [:index, :edit, :update]
 

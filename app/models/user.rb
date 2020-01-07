@@ -4,7 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  belongs_to :role
   has_many :orders, dependent: :destroy
 
   #validates :first_name, presence: true
@@ -14,6 +13,11 @@ class User < ApplicationRecord
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
+
+  ROLES = ["Shop", "Customer"]
+
+  validates :role, inclusion: { in: ROLES,
+    message: "%{value} is not a valid role" }
 
 def average_rating
     counter = 0

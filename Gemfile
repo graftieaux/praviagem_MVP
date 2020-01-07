@@ -17,6 +17,10 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'geocoder'
 
+gem 'pundit'
+gem 'cocoon'
+gem 'jquery-rails'
+
 group :development do
   gem 'web-console', '>= 3.3.0'
 end

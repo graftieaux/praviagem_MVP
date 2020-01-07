@@ -1,9 +1,16 @@
 <%= simple_form_for [@meal, @order] do |f| %>
-    <div class="form-group">
-      <%= f.input :meal, collection: @meal.description %>
-      <%= f.input :quantity, collection: @order.available_quantities, include_blank: false%>
+  <div class="form-group">
+    <div id="meal_orders">
+      <%= f.simple_fields_for :meal_orders do |meal_order| %>
+        <%= render 'meal_order_fields', f: meal_order %>
+      <% end %>
+      <div class="links">
+        <%= link_to_add_association 'add meal', f, :meal_orders %>
+      </div>
     </div>
-    <div class="centered">
-      <%= f.submit class: "btn btn-success mt-1 mb-1", data: {toggle: "modal", target: "#myModal"} %>
-    </div>
-  <% end %>
+
+  </div>
+  <div class="centered">
+    <%= f.submit class: "btn btn-success mt-1 mb-1", data: {toggle: "modal", target: "#myModal"} %>
+  </div>
+<% end %>

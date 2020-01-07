@@ -1,10 +1,19 @@
 <div class="footer">
   <div class="footer-links">
-    <img src="../assets/images/Logo.png" alt="">
+    <%= image_tag "Logo.png" %>
     <a href="#"><i class="fas fa-map-marker-alt"></i></a>
     <a href="#"><i class="fas fa-heart"></i></a>
     <a href="#"><i class="fas fa-receipt"></i></a>
     <a href="#"><i class="fas fa-user"></i></a>
+    <% if user_signed_in? %>
+      <li>
+      <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+      </li>
+    <% else %>
+      <li>
+      <%= link_to('Login', new_user_session_path) %>
+      </li>
+    <% end %>
   </div>
 </div>
 

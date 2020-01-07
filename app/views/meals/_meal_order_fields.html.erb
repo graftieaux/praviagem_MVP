@@ -1,0 +1,5 @@
+<div class="nested-fields meal_selection">
+  <%= f.input :quantity, input_html: {class: "small_inline_price"} %>
+  <%= f.input :meal_id, collection: Meal.all, value_method:  :id, label_method: :all_info %>
+  <%= link_to_remove_association "remove meal", f %>
+</div>

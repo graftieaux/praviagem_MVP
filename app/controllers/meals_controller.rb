@@ -3,19 +3,22 @@ class MealsController < ApplicationController
 
   def index
     @meals = Meal.all
-    @meals = Meal.geocoded
-    @markers = @meals.map do |meal|
+    @shops = User.where(role: "Shop").geocoded
+    @markers = @shops.map do |shop|
       {
-        lat: meal.latitude,
-        lng: meal.longitude
+        lat: shop.latitude,
+        lng: shop.longitude
       }
     end
   end
 
   def show
     @meal = Meal.find(params[:id])
-    authorize @meal
+    # authorize @meal
     @order = @meal.orders.new
+    Meal.all.each do |meal|
+      @order.meal_orders.build(meal_id: meal.id, quantity: 0)
+    end
     @orders_reviews = Order.joins(:user).where(meal_id: @meal.id).limit(5)
   end
 

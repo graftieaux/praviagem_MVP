@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_07_135557) do
+ActiveRecord::Schema.define(version: 2020_01_07_192437) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,16 @@ ActiveRecord::Schema.define(version: 2020_01_07_135557) do
     t.integer "customer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "meal_orders", force: :cascade do |t|
+    t.bigint "order_id"
+    t.bigint "meal_id"
+    t.integer "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["meal_id"], name: "index_meal_orders_on_meal_id"
+    t.index ["order_id"], name: "index_meal_orders_on_order_id"
   end
 
   create_table "meal_prices", force: :cascade do |t|
@@ -45,24 +55,18 @@ ActiveRecord::Schema.define(version: 2020_01_07_135557) do
     t.integer "quantity"
     t.string "description"
     t.time "time"
-    t.integer "shop_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_meals_on_user_id"
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer "quantity"
-    t.integer "customer_id"
     t.integer "price"
-    t.integer "meal_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "roles", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -76,13 +80,17 @@ ActiveRecord::Schema.define(version: 2020_01_07_135557) do
     t.string "first_name"
     t.string "last_name"
     t.string "photo"
-    t.bigint "role_id"
+    t.string "role"
     t.float "latitude"
     t.float "longitude"
+    t.string "address"
+    t.boolean "admin", default: false, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-    t.index ["role_id"], name: "index_users_on_role_id"
   end
 
-  add_foreign_key "users", "roles"
+  add_foreign_key "meal_orders", "meals"
+  add_foreign_key "meal_orders", "orders"
+  add_foreign_key "meals", "users"
+  add_foreign_key "orders", "users"
 end
