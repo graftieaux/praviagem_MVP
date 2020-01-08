@@ -23,22 +23,11 @@
   //border-top: 0.2px solid;
   //position: fixed;
   bottom: 0;
-}
-
-.footer-links img {
-  color: black;
-  opacity: 0.15;
-  text-decoration: none;
-  font-size: 24px;
-  padding: 0px 25px;
-  //border-top: 0.2px solid;
-  //bottom: 0;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 .footer-links a:hover {
   opacity: 1;
 }
 
-.footer-links img:hover {
-  opacity: 1;
-}
